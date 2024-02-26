@@ -1,8 +1,6 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
-// import Card from '../components/Card';
-const Card = React.lazy(() => import("../components/Card"));
 
 const Home = () => {
 
@@ -46,23 +44,20 @@ const Home = () => {
         <div className="home">
             <div className="posts">
                 {posts.map((post) => (
-                    // <div className="post" key={post.id}>
-                    //     <div className="img">
-                    //         <img src={`../upload/${post.img}`} alt="" />
-                    //     </div>
-                    //     <div className="content">
-                    //         <Link className="link" to={`/post/${post.id}`}>
-                    //             <h1>{post.title}</h1>
-                    //         </Link>
-                    //         <p>{getText(post.desc)}</p>
-                    //         <Link className="link" to={`/post/${post.id}`}>
-                    //             <button>Read More</button>
-                    //         </Link>
-                    //     </div>
-                    // </div>
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Card id={post.id} img={post.img} title={post.title} desc={post.desc} />
-                    </Suspense>
+                    <div className="post" key={post.id}>
+                        <div className="img">
+                            <img src={`../upload/${post.img}`} alt="" />
+                        </div>
+                        <div className="content">
+                            <Link className="link" to={`/post/${post.id}`}>
+                                <h1>{post.title}</h1>
+                            </Link>
+                            <p>{getText(post.desc)}</p>
+                            <Link className="link" to={`/post/${post.id}`}>
+                                <button>Read More</button>
+                            </Link>
+                        </div>
+                    </div>
                 ))}
             </div>
         </div>
