@@ -1,4 +1,4 @@
-# Blog App
+# ConnectedCraft Website
 
 ## 📌 Technologies Used
 
